@@ -49,8 +49,14 @@ npm run dev     # http://localhost:3333
 | `/blog` | Blog index and individual post pages |
 
 ## Features
-- Fast and lightweight
-- Store admin has independent editing access for all products, artists section and blog
+- **"A tu gusto" customizable section** — dedicated menu area for juices and coffees with dual pricing (base and with milk), fruit availability notices, extras, and extractos
+- **Header quick-access bar** — links to WhatsApp, Google Maps location, and an accessible business-hours modal (keyboard-navigable, Escape to close)
+- **Blog with rich content** — Portable Text rendering, author attribution with avatar, and per-post OpenGraph metadata for social sharing
+- **Incremental Static Regeneration** — menu and artist pages revalidate every 30 seconds so content stays fresh without redeployment
+- **Production security headers** — CSP with Sanity CDN allowlist, HSTS, X-Frame-Options, Referrer-Policy, and Permissions-Policy
+- **Accessible UI** — semantic HTML, ARIA labels, focus management, and full keyboard navigation throughout
+- **Branded error pages** — custom 404 and error boundary pages in Spanish, styled to match the site
+- **Store admin has independent editing access** for all products, artists, and blog posts via Sanity Studio
 
 
 ## Tech stack
@@ -71,6 +77,9 @@ npm run dev     # http://localhost:3333
 | `post` | Blog posts with Portable Text body |
 | `author` | Blog post authors |
 | `artist` | Featured artists shown on the physical store page |
+
+## Tools
+Built with the assistance of [Claude](https://claude.ai) (Anthropic).  
 
 ## Environment
 
