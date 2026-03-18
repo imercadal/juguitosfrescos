@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'LifelogoEasy';
+  src: url('/LifelogoEasy.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-sans: 'Shantell Sans', Arial, sans-serif;
+  --font-display: 'LifelogoEasy', Arial, sans-serif;
+  --font-mono: 'Courier New', monospace;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-greenDark: oklch(0.3558 0.1129 139.72);
+  --color-greenLight: oklch(0.5901 0.1057 134.4);
+  --color-yellowLight: oklch(0.7977 0.1514 77.8);
+  --color-yellowDark: oklch(0.7559 0.1627 71.03);
+  --color-orangeDark: oklch(0.5889 0.1885 39.04);
+  --color-orangeLight: oklch(0.7112 0.166 56.89);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.shantell-sans {
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: 
+    "BNCE" 0, 
+    "INFM" 0, 
+    "SPAC" 0;
+}
+
+@layer base {
+  h1 {
+    font-size: var(--text-2xl);
+  }
+  h2 {
+    font-size: var(--text-xl);
+  }
+}
+
+h1 {
+  font-family: var(--font-display);
+}
+
+p {
+  @apply
+    text-greenDark
+}
+
+.cardTitle {
+  @apply
+    font-bold 
+    text-5xl
+    text-shadow-lg/25
+}
+
+.card {
+  @apply
+    relative
+    flex
+    flex-1
+    justify-center
+    items-center
+    bg-cover
+    bg-center
+    rounded-3xl
+    shadow-2xl/70
+    transform
+    transition
+    hover:scale-105
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  mix-blend-mode: soft-light;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 0.75;
+}
+
+.card-yellow::before { background-color: var(--color-yellowDark); }
+.card-orange::before { background-color: var(--color-orangeDark); }
+.card-green::before  { background-color: var(--color-greenDark); }
+.card-gray::before  { background-color: var(--color-gray-400); }
