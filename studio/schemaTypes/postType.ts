@@ -44,5 +44,10 @@ export const postType = defineType({
       type: 'array',
       of: [{type: 'block'}],
     }),
+    defineField({
+      name: 'igUrl',
+      title: 'Link a post en ig',
+      type: 'string',
+    }),
   ],
 })
