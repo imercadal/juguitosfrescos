@@ -20,7 +20,7 @@ export default function Home() {
             </h1>
           </div>
           <div
-            className="card card-gray"
+            className="card card-gray !bg-[center_calc(50%+1rem)] md:!bg-center"
             style={{ backgroundImage: "url('/juguito-bg.jpg')" }}
           >
             <h1 className="cardTitle text-yellowDark text-shadow-yellow-900">
