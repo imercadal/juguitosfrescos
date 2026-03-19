@@ -48,7 +48,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       <article className="container max-w-3xl mx-auto px-8 py-12 md:py-24">
         <h1 className="text-4xl text-greenDark font-bold mb-4">{post.title}</h1>
         <p className="text-sm text-greenDark mb-6">
-          {new Date(post.publishedAt).toLocaleDateString()}
+          {new Date(post.publishedAt).toLocaleDateString('es-ES', { dateStyle: 'long' })}
         </p>
         {post.author && (
           <div className="flex items-center gap-3 mb-8">
