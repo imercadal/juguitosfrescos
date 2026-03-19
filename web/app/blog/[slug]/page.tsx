@@ -11,6 +11,7 @@ const POST_QUERY = `*[_type == "post" && slug.current == $slug][0]{
   title,
   publishedAt,
   body,
+  igUrl,
   author->{
     name,
     "avatarUrl": avatar.asset->url
@@ -68,6 +69,16 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         <div className="prose prose-lg">
           <PortableText value={post.body} />
         </div>
+        {post.igUrl && (
+          <a
+            href={post.igUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-6 text-orangeDark hover:underline"
+          >
+            Ver post en instagram
+          </a>
+        )}
         <div className="fixed bottom-0 left-0 right-0 flex justify-end items-center gap-8 px-8 py-4 bg-yellowLight border-t border-greenDark">
           <Link href="/blog" className="text-yellowLight bg-greenDark bg-opacity-10  rounded-2xl py-2 px-5 hover:underline">
             Volver al blog

@@ -2,22 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { type SanityDocument } from "next-sanity";
 import { client, urlFor } from "../../sanity/client";
-
-const POSTS_QUERY = `*[
-  _type == "post" && defined(slug.current)
-]|order(publishedAt desc)[0...12]{
-  _id,
-  title,
-  slug,
-  publishedAt,
-  image,
-    author->{
-    _id,
-    name,
-    avatar
-  },
-  "excerpt": body[0].children[0].text
-}`;
+import { POSTS_QUERY } from '../../sanity/queries/blog';
 
 const options = { next: { revalidate: 30 } };
 

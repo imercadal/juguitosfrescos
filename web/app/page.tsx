@@ -12,17 +12,6 @@ export default function Home() {
             className="card card-gray"
             style={{ backgroundImage: "url('/Iguana.jpg')" }}
           >
-            <h1 className="cardTitle text-yellowDark text-shadow-yellow-900">
-              <Link href="/menu" className="card-link">
-                 <span className="absolute inset-0"></span>
-                Menu
-              </Link>
-            </h1>
-          </div>
-          <div
-            className="card card-gray"
-            style={{ backgroundImage: "url('/hraunfossar-waterfalls.jpg')" }}
-          >
             <h1 className="cardTitle text-orangeDark text-shadow-green-900">
               <Link href="/artistas" className="card-link">
                 <span className="absolute inset-0"></span>
@@ -30,6 +19,18 @@ export default function Home() {
               </Link>
             </h1>
           </div>
+          <div
+            className="card card-gray"
+            style={{ backgroundImage: "url('/juguito-bg.jpg')" }}
+          >
+            <h1 className="cardTitle text-yellowDark text-shadow-yellow-900">
+              <Link href="/menu" className="card-link">
+                 <span className="absolute inset-0"></span>
+                Menu
+              </Link>
+            </h1>
+          </div>
+
           <div
             className="card card-green"
             style={{ backgroundImage: "url('/Flor1.jpg')" }}
