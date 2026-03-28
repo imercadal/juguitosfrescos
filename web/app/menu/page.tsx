@@ -20,7 +20,7 @@ export default async function MenuPage() {
   return (
     <>
       <Header />
-      <div className="px-4 sm:px-10 md:px-16 py-4 sm:py-8">
+      <div className="px-4 sm:px-10 md:px-16 pt-4 sm:pt-8 pb-16">
         <ProductsList
           categories={categories}
           menuItems={menuItems}

@@ -1,12 +1,13 @@
 import Link from "next/link";
 import Header from "./componentes/Header";
+import Map from "./componentes/Map";
 
 export default function Home() {
   return (
-    <main className="bg-yellowLight">
+    <div className="bg-yellowLight">
       <div className="flex flex-col min-h-screen">
         <Header />
-        <div className="flex flex-col lg:flex-row flex-grow p-8 sm:p-10 md:py-20 md:px-36 gap-6 md:gap-x-12">
+        <section className="flex flex-col lg:flex-row flex-grow p-6 sm:p-10 md:py-6 gap-6 md:gap-x-12">
           {/* CARDS */}
           <div
             className="card card-gray"
@@ -42,15 +43,17 @@ export default function Home() {
               </Link>
             </h1>
           </div>
-        </div>
-
+        </section>
+        <section className="relative bg-cover bg-center text-center ">
+          <Map />
+        </section>
 
       </div>
-    </main>
+    </div>
   );
 }
 
 /**
-
+px-8 md:px-10 lg:px-0 pt-2 pb-8 md:pb-12 lg:pb-0
               
  */

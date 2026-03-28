@@ -13,7 +13,6 @@ export default function ProductSection({ title, items }: ProductSectionProps) {
         {items.map((item) => (
           <ProductCard
             key={item.id}
-            href={'/menu/' + item.id}
             name={item.name}
             price={item.price}
             description={item.description}

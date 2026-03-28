@@ -6,7 +6,8 @@ import { useState, useEffect } from "react"
 import { MdLocationOn } from 'react-icons/md';
 import { MdCalendarMonth } from 'react-icons/md';
 import { MdWhatsapp } from 'react-icons/md';
-import { WHATSAPP_URL, GOOGLE_MAPS_URL, BUSINESS_HOURS } from '@/lib/constants'
+import { AiFillInstagram } from "react-icons/ai";
+import { WHATSAPP_URL, GOOGLE_MAPS_URL, BUSINESS_HOURS } from '@/lib/constants';
 
 const dias = [
     "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"
@@ -25,7 +26,7 @@ export default function Header () {
     }, [horariosAbierto]);
 
     return(
-        <div className="sm:flex justify-between items-center mx-4 sm:mx-10 py-6 bg-yellowLight border-b-2 border-greenDark">
+        <div className="sticky top-0 z-30 sm:flex justify-between items-center mx-4 sm:mx-10 py-3 sm:py-6 bg-yellowLight border-b-2 border-greenDark">
             <div className="flex flex-col sm:flex-row justify-center items-center">
                 <div className="flex items-end">
                     <Image
@@ -39,9 +40,23 @@ export default function Header () {
                         <h1 className="px-6 text-4xl text-orangeDark text-shadow-sm hover:opacity-75 hover:scale-105">Juguitos Frescos</h1>
                     </Link>
                 </div>
-                <p className="mt-4 mb-2 sm:mb-0 sm:mt-auto sm:pr-6 lg:pr-0 pb-1 shantell-sans font-medium text-greenDark">Jugos naturales para todos los gustos</p>
             </div>
-            <div className="flex gap-x-8 justify-center sm:justify-end">
+            <div className="flex gap-x-8 pt-3 items-end justify-center sm:justify-end">
+                <a
+                    href="https://www.pedidosya.cl/restaurantes/santiago/juguitos-frescos-7c2dfd5f-20fe-402e-9c9e-d19daaf02d04-menu"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    aria-label="Comprar en Pedidos Ya"
+                    className="flex items-center pb-[2px] text-3xl text-greenDark hover:opacity-75 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-greenDark rounded"
+                >
+                    <Image
+                        src='/pedidos-ya-logo.png'
+                        alt="Logo Pedidos Ya"
+                        height={25}
+                        width={25}
+                        className="object-cover"
+                    />
+                </a>
                 <a
                     href={GOOGLE_MAPS_URL}
                     rel="noopener noreferrer"
@@ -93,7 +108,20 @@ export default function Header () {
                 >
                     <MdWhatsapp />
                 </a>
+                                <a
+                    href="https://www.instagram.com/juguitosfrescos/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    aria-label="Ir a perfil de Instagram"
+                    className="flex items-center text-3xl text-greenDark hover:opacity-75 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-greenDark rounded"
+                >
+                    <AiFillInstagram />
+                </a>
             </div>
         </div>
     )
-}
+};
+
+/*
+<p className="hidden md:inline mt-4 mb-2 sm:mb-0 sm:mt-auto sm:pr-6 lg:pr-0 pb-1 shantell-sans font-medium text-greenDark">Jugos naturales para todos los gustos</p>
+ */
