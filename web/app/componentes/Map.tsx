@@ -1,16 +1,49 @@
+"use client"
+
+import { useRef } from 'react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { MdMyLocation } from 'react-icons/md';
+
+const CENTER = { lat: -33.43281579661079, lng: -70.6575659234882 };
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${CENTER.lat},${CENTER.lng}`;
+
 export default function Map() {
+    const mapRef = useRef<google.maps.Map | null>(null);
+
+    function handleRecenter() {
+        mapRef.current?.panTo(CENTER);
+        mapRef.current?.setZoom(16);
+    }
+
     return (
-        <div className="w-full h-40 md:h-36 rounded-lg overflow-hidden">
-            <iframe
-                title="Ubicación de Juguitos Frescos"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.6328259179613!2d-70.6575659234882!3d-33.43281579661079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5a8cea3534f%3A0x72a6708497899b6e!2sJuguitos%20Frescos!5e0!3m2!1sen!2sus!4v1774729785099!5m2!1sen!2sus" 
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+        <div className="relative w-full h-40 md:h-36 rounded-lg overflow-hidden">
+            <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
+                <GoogleMap
+                    mapContainerStyle={{ width: '100%', height: '100%' }}
+                    center={CENTER}
+                    zoom={16}
+                    options={{ streetViewControl: false }}
+                    onLoad={(map) => {
+                        mapRef.current = map}}
+                >
+                    <Marker position={CENTER} />
+                </GoogleMap>
+            </LoadScript>
+            <button
+                onClick={handleRecenter}
+                className="absolute top-2 left-2 z-10 bg-newYellow p-1.5 rounded-full shadow hover:opacity-80"
+                aria-label="Volver a la tienda"
+            >
+                <MdMyLocation size={20} className="text-greenDark" />
+            </button>
+            <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-2 right-2 z-10 bg-greenDark text-sm font-medium text-white px-3 py-1 rounded-full shadow hover:opacity-80"
+            >
+                Abrir en Google Maps
+            </a>
         </div>
     );
-};
+}

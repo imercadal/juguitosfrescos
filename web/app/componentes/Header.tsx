@@ -26,18 +26,18 @@ export default function Header () {
     }, [horariosAbierto]);
 
     return(
-        <div className="sticky top-0 z-30 sm:flex justify-between items-center mx-4 sm:mx-10 py-3 sm:py-6 bg-yellowLight border-b-2 border-greenDark">
+        <div className="sticky top-0 z-30 sm:flex justify-between items-center px-4 sm:px-10 py-2 bg-white shadow-lg border-b-1 border-yellowDark">
             <div className="flex flex-col sm:flex-row justify-center items-center">
                 <div className="flex items-end">
                     <Image
-                        src='/Logo_monito.png'
+                        src='/Logo-completo.png'
                         alt="Logo"
-                        height={60}
-                        width={60}
+                        height={80}
+                        width={80}
                         className="rounded-full object-cover"
                     />
                     <Link href='/'>
-                        <h1 className="px-6 text-4xl text-orangeDark text-shadow-sm hover:opacity-75 hover:scale-105">Juguitos Frescos</h1>
+                        <h1 className="sm:pb-2 text-5xl text-salmon text-shadow-sm hover:opacity-75 hover:scale-105">Juguitos Frescos</h1>
                     </Link>
                 </div>
             </div>
@@ -124,4 +124,4 @@ export default function Header () {
 
 /*
 <p className="hidden md:inline mt-4 mb-2 sm:mb-0 sm:mt-auto sm:pr-6 lg:pr-0 pb-1 shantell-sans font-medium text-greenDark">Jugos naturales para todos los gustos</p>
- */
+*/
