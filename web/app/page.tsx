@@ -45,7 +45,7 @@ export default function Home() {
             </h1>
           </div>
         </section>
-        <section className="relative bg-cover bg-center text-center p-6 sm:p-10 md:py-6 ">
+        <section className="relative bg-cover bg-center text-center px-6 sm:px-10 pb-6 md:py-6">
           <Map />
         </section>
 

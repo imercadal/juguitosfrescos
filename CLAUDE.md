@@ -51,6 +51,7 @@ Sanity schemas are defined in `studio/schemaTypes/`:
 - **Menu category field names** in Sanity use Spanish (`nombre`, `identificador`, `orden`); GROQ queries alias them back to English (`title`, `slug`) so frontend types are unaffected
 - **Two-section menu layout**: the `/menu` page renders an **"A tu gusto"** section (flexible items, handled by `AtuGustoCmsSection` in `ProductList.tsx`) and an **inferior section** (regular `menuItem` categories). Categories with `seccion: true` in Sanity belong to "A tu gusto" and are filtered out of the inferior section.
 - **`seccion` field** is fetched raw (no alias) and used only for filtering — unlike `nombre`/`identificador`, it is not aliased in GROQ queries
+- **Map** (`web/app/componentes/Map.tsx`) uses `@react-google-maps/api` (`LoadScript` + `GoogleMap` + `Marker`). API key from `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`. Street View disabled. Overlay buttons: recenter (top-left, `MdMyLocation`) and "Abrir en Google Maps" link (bottom-right). Production CSP in `web/next.config.ts` allows `*.googleapis.com` and `*.gstatic.com` for Maps to load.
 - **Portable Text** rendered via `@portabletext/react` for blog post bodies
 - **Images** use `@sanity/image-url` builder + Next.js `<Image>` with `cdn.sanity.io` configured as a remote pattern
 
