@@ -26,6 +26,8 @@
   --color-yellowDark: oklch(0.7559 0.1627 71.03);
   --color-orangeDark: oklch(0.5889 0.1885 39.04);
   --color-orangeLight: oklch(0.7112 0.166 56.89);
+  --color-salmon: oklch(0.659 0.196 21);
+  --color-newYellow: oklch(0.8124 0.166565 84.6744);
 }
 
 @media (prefers-color-scheme: dark) {

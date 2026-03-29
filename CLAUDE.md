@@ -40,7 +40,7 @@ Sanity schemas are defined in `studio/schemaTypes/`:
 - `artistType` - each artist featured (fields: `name`, `bio`, `avatar` image, `orden`); rendered on `/artistas` via `ArtistsList.tsx` — shows empty-state message if no artists are returned
 
 ### Frontend Pages (Next.js App Router)
-- `/` — Home with hero cards linking to the three main sections
+- `/` — Home with hero cards linking to the three main sections and map
 - `/menu` — Products grouped by category, fetched from Sanity CMS
 - `/artistas` — Featured artists listing
 - `/blog` — Blog index + `/blog/[slug]` dynamic routes
