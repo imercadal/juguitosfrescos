@@ -26,22 +26,22 @@ export default function Header () {
     }, [horariosAbierto]);
 
     return(
-        <div className="sticky top-0 z-30 sm:flex justify-between items-center px-4 sm:px-10 py-2 bg-white shadow-lg border-b-1 border-yellowDark">
-            <div className="flex flex-col sm:flex-row justify-center items-center">
-                <div className="flex items-end">
+        <div className="sticky top-0 z-30 sm:flex justify-between items-end pl-2 sm:px-10 py-2 bg-white shadow-lg border-b-1 border-yellowDark">
+            <div className="py-1 flex flex-col sm:flex-row justify-center items-center">
+                <div className="flex items-end gap-2">
                     <Image
-                        src='/Logo-completo.png'
+                        src='/Logo-completo2.png'
                         alt="Logo"
-                        height={80}
-                        width={80}
-                        className="rounded-full object-cover"
+                        height={70}
+                        width={50}
+                        className="rounded-full object-cover w-[50px] h-[70px] sm:w-[60px] sm:h-[84px]"
                     />
                     <Link href='/'>
-                        <h1 className="sm:pb-2 text-5xl text-salmon text-shadow-sm hover:opacity-75 hover:scale-105">Juguitos Frescos</h1>
+                        <h1 className="sm:pb-2 text-[2.6rem] sm:text-5xl text-salmon text-shadow-sm hover:opacity-75 hover:scale-105 whitespace-nowrap">Juguitos Frescos</h1>
                     </Link>
                 </div>
             </div>
-            <div className="flex gap-x-8 pt-3 items-end justify-center sm:justify-end">
+            <div className="flex gap-x-6 sm:gap-x-5 lg:gap-x-8 pt-1 sm:pt-3  sm:pb-4 justify-center sm:justify-end">
                 <a
                     href="https://www.pedidosya.cl/restaurantes/santiago/juguitos-frescos-7c2dfd5f-20fe-402e-9c9e-d19daaf02d04-menu"
                     rel="noopener noreferrer"
