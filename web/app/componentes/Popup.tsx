@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { PopupData } from '@/sanity/queries/marketing';
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "motion/react";
 
 type Props = {
     popupData: PopupData | null;
@@ -46,7 +47,13 @@ export default function Popup({ popupData }: Props) {
                 className="relative"
             >
                 {/* Circle with GIF + overlaid content */}
-            <div className="w-64 sm:w-80 h-64 sm:h-80 rounded-full overflow-hidden relative">
+            <motion.div 
+                className="w-64 sm:w-80 h-64 sm:h-80 rounded-full overflow-hidden relative"
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1, rotate: 360 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                onClick={(e) => e.stopPropagation()}
+            >
                     <Image
                         src="/Juguitos1.gif"
                         alt=""
@@ -80,7 +87,7 @@ export default function Popup({ popupData }: Props) {
                         )
                         : <br/> }
                     </div>
-                </div>
+            </motion.div>
 
             </div>
         </div>
