@@ -58,6 +58,9 @@ Sanity schemas are defined in `studio/schemaTypes/`:
 - **Portable Text** rendered via `@portabletext/react` for blog post bodies
 - **Images** use `@sanity/image-url` builder + Next.js `<Image>` with `cdn.sanity.io` configured as a remote pattern
 
+### Animations
+- **Motion** (`motion/react`) is installed for UI animations. Used in `Popup.tsx` for entrance animation (`scale` + `opacity` with `easeOut`). Import from `motion/react`, not the deprecated `framer-motion` package.
+
 ### Styling
 - Tailwind CSS 4 with custom oklch color palette: `greenDark`, `greenLight`, `yellowLight`, `yellowDark`, `orangeDark`, `orangeLight`
 - Custom fonts: Shantell Sans (body, via Google Fonts), LifelogoEasy (display/logo)

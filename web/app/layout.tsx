@@ -5,6 +5,7 @@ import Banner from "./componentes/Banner";
 import Footer from "./componentes/Footer";
 import { client } from "@/sanity/client";
 import { BANNER_QUERY, BannerData } from "@/sanity/queries/marketing";
+import Script from "next/script";
 
 const shantell = Shantell_Sans({
   subsets: ['latin'],
@@ -35,6 +36,10 @@ export default async function RootLayout({
       <body
         className={`${shantell.className} antialiased`}
       >
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+        />
         <main className="bg-yellowLight min-h-screen">
           <Banner data={banner} />
           {children}

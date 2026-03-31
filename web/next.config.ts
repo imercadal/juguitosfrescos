@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains' },
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' *.googleapis.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: cdn.sanity.io *.googleapis.com *.gstatic.com; font-src 'self' fonts.gstatic.com; connect-src 'self' *.googleapis.com;",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' *.googleapis.com analytics.umami.is; style-src 'self' 'unsafe-inline' fonts.googleapis.com; img-src 'self' data: cdn.sanity.io *.googleapis.com *.gstatic.com; font-src 'self' fonts.gstatic.com; connect-src 'self' *.googleapis.com analytics.umami.is;",
           },
         ],
       },
