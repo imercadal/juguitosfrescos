@@ -14,7 +14,7 @@ export default async function Home() {
       <Popup popupData={popup} />
       <div className="flex flex-col min-h-screen">
         <Header />
-        <div className="lg:max-w-7xl mx-auto w-full flex flex-col flex-grow">
+        <div className="lg:max-w-6xl mx-auto w-full flex flex-col flex-grow">
           <section className="flex flex-col lg:flex-row flex-grow p-6 sm:p-10 md:py-6 gap-6 md:gap-x-12">
             {/* CARDS */}
             <div

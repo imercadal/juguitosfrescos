@@ -16,6 +16,22 @@ export default function Map() {
         mapRef.current?.setZoom(16);
     }
 
+    if (process.env.NODE_ENV !== 'production') {
+        return (
+            <div className="relative w-full h-40 md:h-36 rounded-lg overflow-hidden bg-gray-200 flex items-center justify-center">
+                <span className="text-gray-500 text-sm">Mapa (dev)</span>
+                <a
+                    href={MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-2 right-2 z-10 bg-greenDark text-sm font-medium text-white px-3 py-1 rounded-full shadow hover:opacity-80"
+                >
+                    Abrir en Google Maps
+                </a>
+            </div>
+        );
+    }
+
     return (
         <div className="relative w-full h-40 md:h-36 rounded-lg overflow-hidden">
             <LoadScript googleMapsApiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
