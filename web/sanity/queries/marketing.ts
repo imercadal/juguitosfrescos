@@ -1,3 +1,15 @@
+export type BannerData = {
+  _id: string;
+  body: string;
+  buttonText: string;
+  buttonUrl: string;
+  visible: boolean;
+};
+
+export const BANNER_QUERY = `*[_type == "banner" && visible == true][0] {
+  _id, body, buttonText, buttonUrl, visible
+}`;
+
 export type PopupData = {
   _id: string;
   title: string;

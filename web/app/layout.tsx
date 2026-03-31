@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Shantell_Sans, Zain } from "next/font/google";
 import "../styles/globals.css";
+import Banner from "./componentes/Banner";
+import Footer from "./componentes/Footer";
+import { client } from "@/sanity/client";
+import { BANNER_QUERY, BannerData } from "@/sanity/queries/marketing";
 
 const shantell = Shantell_Sans({
   subsets: ['latin'],
@@ -19,18 +23,22 @@ export const metadata: Metadata = {
   description: "Menu, Artistas y Blog!",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const banner = await client.fetch<BannerData | null>(BANNER_QUERY);
+
   return (
     <html lang="es" className={zain.variable}>
       <body
         className={`${shantell.className} antialiased`}
       >
         <main className="bg-yellowLight min-h-screen">
+          <Banner data={banner} />
           {children}
+          <Footer />
         </main>
       </body>
     </html>

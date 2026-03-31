@@ -10,12 +10,22 @@ type Props = {
 };
 
 export default function Popup({ popupData }: Props) {
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
+
+    useEffect(() => {
+        const dismissed = localStorage.getItem('popup-dismissed');
+        if (!dismissed) setOpen(true);
+    }, [])
+
+    const close = () => {
+        localStorage.setItem('popup-dismissed', '1');
+        setOpen(false);
+    };
 
     useEffect(() => {
         if (!open) return
         const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') setOpen(false)
+            if (e.key === 'Escape') close()
         }
         document.addEventListener('keydown', handleKeyDown)
         return () => document.removeEventListener('keydown', handleKeyDown)
@@ -26,7 +36,7 @@ export default function Popup({ popupData }: Props) {
     return (
         <div
             className="fixed inset-0 z-60 bg-black/60 flex items-center justify-center"
-            onClick={() => setOpen(false)}
+            onClick={close}
             aria-hidden="true"
         >
             <div
