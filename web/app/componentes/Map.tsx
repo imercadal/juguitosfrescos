@@ -5,7 +5,8 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { MdMyLocation } from 'react-icons/md';
 
 const CENTER = { lat: -33.43281579661079, lng: -70.6575659234882 };
-const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${CENTER.lat},${CENTER.lng}`;
+const MAPS_URL = `https://maps.app.goo.gl/vZRiwrAM2E8R5oNKA?g_st=aw`;
+
 
 export default function Map() {
     const mapRef = useRef<google.maps.Map | null>(null);

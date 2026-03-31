@@ -17,6 +17,8 @@
 }
 
 @theme inline {
+  --font-zain: var(--font-zain), Arial, sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 

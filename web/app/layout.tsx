@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Shantell_Sans } from "next/font/google";
+import { Shantell_Sans, Zain } from "next/font/google";
 import "../styles/globals.css";
 
 const shantell = Shantell_Sans({
   subsets: ['latin'],
   display: 'swap',
+});
+
+const zain = Zain({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-zain',
+  weight: ['200', '300', '400', '700', '800', '900'],
 });
 
 export const metadata: Metadata = {
@@ -18,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" className={zain.variable}>
       <body
         className={`${shantell.className} antialiased`}
       >

@@ -1,10 +1,17 @@
 import Link from "next/link";
 import Header from "./componentes/Header";
 import Map from "./componentes/Map";
+import Popup from "./componentes/Popup";
+import { client } from "@/sanity/client";
+import { POPUP_QUERY, PopupData } from "@/sanity/queries/marketing";
 
-export default function Home() {
+export default async function Home() {
+  const popups: PopupData[] = await client.fetch(POPUP_QUERY);
+  const popup = popups.find(p => p.visible) ?? null;
+
   return (
     <div className="bg-newYellow">
+      <Popup popupData={popup} />
       <div className="flex flex-col min-h-screen">
         <Header />
         <section className="flex flex-col lg:flex-row flex-grow p-6 sm:p-10 md:py-6 gap-6 md:gap-x-12">

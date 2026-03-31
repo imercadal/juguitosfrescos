@@ -38,16 +38,17 @@ Sanity schemas are defined in `studio/schemaTypes/`:
 - `flexibleItemType.ts` — menu products for customizable section A tu gusto, with additional fields (fields: `name`, `slug`, `precioBase`, `precioConLeche`, `description`, `image`, `orden`,`category` reference, `available`)
 - `ingredientType` - each ingredient, fields: `ingredient`, `identificador`, `tipo` (multiple selection), `available` (boolean).
 - `artistType` - each artist featured (fields: `name`, `bio`, `avatar` image, `orden`); rendered on `/artistas` via `ArtistsList.tsx` — shows empty-state message if no artists are returned
+- `popupType` — modal popup shown on the home page (fields: `title`, `identificador` slug, `bajada` string max 99 chars, `linkText`, `linkUrl`, `visible` boolean); only the first document with `visible: true` is displayed; a Studio validation warning fires if more than one popup has `visible: true`
 
 ### Frontend Pages (Next.js App Router)
-- `/` — Home with hero cards linking to the three main sections and map
+- `/` — Home with hero cards linking to the three main sections, map, and a popup (`Popup.tsx`) fed from the `popupType` Sanity document
 - `/menu` — Products grouped by category, fetched from Sanity CMS
 - `/artistas` — Featured artists listing
 - `/blog` — Blog index + `/blog/[slug]` dynamic routes
 
 ### Key Patterns
 - **Server components** fetch from Sanity directly (e.g., `PostsList`, `MenuPage` are async)
-- **GROQ queries** with 30-second revalidation in server components; menu queries are in `web/sanity/queries/menu.ts`, artists queries in `web/sanity/queries/artists.ts`
+- **GROQ queries** with 30-second revalidation in server components; menu queries are in `web/sanity/queries/menu.ts`, artists queries in `web/sanity/queries/artists.ts`, popup/marketing queries in `web/sanity/queries/marketing.ts`
 - **Menu category field names** in Sanity use Spanish (`nombre`, `identificador`, `orden`); GROQ queries alias them back to English (`title`, `slug`) so frontend types are unaffected
 - **Two-section menu layout**: the `/menu` page renders an **"A tu gusto"** section (flexible items, handled by `AtuGustoCmsSection` in `ProductList.tsx`) and an **inferior section** (regular `menuItem` categories). Categories with `seccion: true` in Sanity belong to "A tu gusto" and are filtered out of the inferior section.
 - **`seccion` field** is fetched raw (no alias) and used only for filtering — unlike `nombre`/`identificador`, it is not aliased in GROQ queries

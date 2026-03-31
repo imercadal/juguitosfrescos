@@ -5,5 +5,6 @@ import { menuItemType } from "./menuItemType";
 import { ingredientType } from "./ingredientType";
 import { flexibleItemType } from "./flexibleItemType";
 import { artistType } from "./artistType";
+import { popupType } from "./popupType";
 
-export const schemaTypes = [ postType, authorType, menuCategoryType, menuItemType, ingredientType, flexibleItemType, artistType ]
+export const schemaTypes = [ postType, authorType, menuCategoryType, menuItemType, ingredientType, flexibleItemType, artistType, popupType ]
