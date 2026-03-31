@@ -39,9 +39,11 @@ Sanity schemas are defined in `studio/schemaTypes/`:
 - `ingredientType` - each ingredient, fields: `ingredient`, `identificador`, `tipo` (multiple selection), `available` (boolean).
 - `artistType` - each artist featured (fields: `name`, `bio`, `avatar` image, `orden`); rendered on `/artistas` via `ArtistsList.tsx` — shows empty-state message if no artists are returned
 - `popupType` — modal popup shown on the home page (fields: `title`, `identificador` slug, `bajada` string max 99 chars, `linkText`, `linkUrl`, `visible` boolean); only the first document with `visible: true` is displayed; a Studio validation warning fires if more than one popup has `visible: true`
+- `bannerType` — sticky top banner shown on all pages (fields: `body` string required, `buttonText`, `buttonUrl`, `visible` boolean); only the first document with `visible: true` is fetched (filtered in GROQ); a Studio validation warning fires if more than one banner has `visible: true`; dismiss state stored in localStorage keyed by `_id`
 
 ### Frontend Pages (Next.js App Router)
 - `/` — Home with hero cards linking to the three main sections, map, and a popup (`Popup.tsx`) fed from the `popupType` Sanity document
+- All pages — sticky `Banner.tsx` at the top, fed from the `bannerType` Sanity document; fetched in `layout.tsx` (async server component) and passed as a prop
 - `/menu` — Products grouped by category, fetched from Sanity CMS
 - `/artistas` — Featured artists listing
 - `/blog` — Blog index + `/blog/[slug]` dynamic routes
