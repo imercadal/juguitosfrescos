@@ -18,7 +18,6 @@ export default function ArtistsList({ artists }: { artists: SanityArtist[] }) {
             {artists.map(artist => (
                 <ArtistCard
                     key={artist._id}
-                    href={"/artistas/" + artist._id}
                     name={artist.name}
                     bio={artist.bio}
                     imageUrl={artist.avatar ? urlFor(artist.avatar).width(200).url() : undefined}
