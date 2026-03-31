@@ -20,7 +20,7 @@ export default async function Home() {
             className="card card-gray"
             style={{ backgroundImage: "url('/Iguana.jpg')" }}
           >
-            <h1 className="cardTitle text-orangeDark text-shadow-green-900 tracking-wide">
+            <h1 className="cardTitle text-orangeDark text-shadow-green-900 tracking-wider">
               <Link href="/artistas" className="card-link">
                 <span className="absolute inset-0"></span>
                 Artistas
