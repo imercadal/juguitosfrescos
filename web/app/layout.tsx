@@ -5,6 +5,7 @@ import Banner from "./componentes/Banner";
 import Footer from "./componentes/Footer";
 import { client } from "@/sanity/client";
 import { BANNER_QUERY, BannerData } from "@/sanity/queries/marketing";
+import { HORARIO_QUERY, HorarioData } from "@/sanity/queries/horario";
 import Script from "next/script";
 
 const shantell = Shantell_Sans({
@@ -29,7 +30,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const banner = await client.fetch<BannerData | null>(BANNER_QUERY);
+  const [banner, horario] = await Promise.all([
+    client.fetch<BannerData | null>(BANNER_QUERY),
+    client.fetch<HorarioData | null>(HORARIO_QUERY),
+  ]);
 
   return (
     <html lang="es" className={zain.variable}>
@@ -43,7 +47,7 @@ export default async function RootLayout({
         <main className="bg-yellowLight min-h-screen">
           <Banner data={banner} />
           {children}
-          <Footer />
+          <Footer data={horario} />
         </main>
       </body>
     </html>

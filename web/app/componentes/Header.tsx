@@ -27,7 +27,7 @@ export default function Header () {
 
     return(
         <div className="sticky top-0 z-30  bg-white shadow-lg border-b-1 border-yellowDark">
-            <div className="sm:flex justify-between items-end pl-2 sm:px-10 py-2 lg:max-w-7xl mx-auto ">
+            <div className="sm:flex justify-between items-end pl-2 sm:px-10 py-2 lg:max-w-6xl mx-auto ">
                 <div className="py-1 flex flex-col sm:flex-row justify-center items-center">
                     <div className="flex items-end gap-2">
                         <Image

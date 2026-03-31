@@ -81,6 +81,16 @@ npm run dev     # http://localhost:3333
 ## Tools
 Built with the assistance of [Claude](https://claude.ai) (Anthropic).  
 
+## Analytics
+
+[Umami](https://umami.is) is used for privacy-friendly page view tracking. The script is injected in `web/app/layout.tsx` via Next.js `<Script>`. The website ID is set as an environment variable.
+
 ## Environment
 
 The frontend reads from Sanity project `gu1ftuda`, dataset `production`. No `.env` setup is needed for read-only access; Sanity's public API is used directly.
+
+Required env vars in `web/.env.local` (and production environment):
+```
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=<your-google-maps-key>
+NEXT_PUBLIC_UMAMI_WEBSITE_ID=<your-umami-website-id>
+```

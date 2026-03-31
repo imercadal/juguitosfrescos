@@ -67,6 +67,9 @@ Sanity schemas are defined in `studio/schemaTypes/`:
 - Reusable `.card` and `.cardTitle` classes defined with `@layer` in `web/styles/globals.css`
 - Styled-components is also installed (used alongside Tailwind)
 
+### Analytics
+- **Umami** is used for privacy-friendly page view tracking. The script (`https://cloud.umami.is/script.js`) is injected via Next.js `<Script>` in `web/app/layout.tsx`. The website ID is read from `NEXT_PUBLIC_UMAMI_WEBSITE_ID`. This env var is set in `web/.env.local` for local use and in the production environment. The production CSP in `web/next.config.ts` allows `analytics.umami.is` in both `script-src` and `connect-src`.
+
 ### Security Headers
 Defined in `web/next.config.ts`. All headers are gated behind `NODE_ENV === 'production'` — the `headers()` function returns `[]` in dev to avoid MIME type errors from the Next.js dev server serving CSS as `text/plain` under `nosniff`. Active headers in production: `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, `Strict-Transport-Security`, `Content-Security-Policy`.
 
