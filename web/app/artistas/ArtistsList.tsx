@@ -20,7 +20,7 @@ export default function ArtistsList({ artists }: { artists: SanityArtist[] }) {
                     key={artist._id}
                     name={artist.name}
                     bio={artist.bio}
-                    imageUrl={artist.avatar ? urlFor(artist.avatar).width(200).url() : undefined}
+                    imageUrl={artist.avatar ? urlFor(artist.avatar).width(320).url() : undefined}
                 />
             ))}
         </div>
